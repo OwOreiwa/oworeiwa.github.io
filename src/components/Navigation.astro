@@ -4,8 +4,8 @@ import NavigationLink from './NavigationLink.astro';
 
 <nav>
 	<ul class="internal-links">
-		<li><NavigationLink href=`${import.meta.env.SITE}/`>Home</NavigationLink></li>
-		<li><NavigationLink href=`${import.meta.env.SITE}/blog`>Blog</NavigationLink></li>
+		<li><NavigationLink href=`${import.meta.env.BASE_URL}/`>Home</NavigationLink></li>
+		<li><NavigationLink href=`${import.meta.env.BASE_URL}/blog`>Blog</NavigationLink></li>
 	</ul>
 </nav>
 <style>
