@@ -5,6 +5,7 @@
  */
 
 :root {
+	/*
 	--base: 8, 8, 8;
 	--base-comp-1: 247, 247, 247;
 	--base-comp-2: 239, 239, 239;
@@ -14,6 +15,19 @@
 	--base-satu: 15, 18, 25;
 	--base-gradient: rgb(var(--base-satu)), rgb(var(--base));
 	--main: 255, 34, 34;
+	--accent: 220, 200, 0;
+	--accent-dark: 255, 242, 117;
+	*/
+
+	--base: 255, 255, 255;
+	--base-comp-1: 8, 8, 8;
+	--base-comp-2: 16, 16, 16;
+	--base-comp-3: 32, 32, 32;
+	--base-comp-4: 63, 63, 63;
+	--base-comp-5: 127, 127, 127;
+	--base-satu: 251, 251, 251;
+	--base-gradient: rgb(var(--base-satu)), rgb(var(--base));
+	--main: 0, 221, 221;
 	--accent: 35, 55, 255;
 	--accent-dark: 0, 13, 138;
 
@@ -22,6 +36,7 @@
 	--gray-light: 229, 233, 240;
 	--gray-dark: 34, 41, 57;
 	--gray-gradient: rgba(var(--base-satu), 50%), rgb(var(--base));
+	--white: 240, 237, 230;
 	--box-shadow:
 		0 2px 6px rgba(var(--base-comp-3), 25%), 0 8px 24px rgba(var(--base-comp-3), 33%), 0 16px 32px
 		rgba(var(--base-comp-3), 33%);
@@ -111,6 +126,7 @@ a:hover {
 	color: rgb(var(--accent));
 }
 p {
+	font-size: 0.8em;
 	margin-bottom: 1em;
 }
 .prose p {

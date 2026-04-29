@@ -2,6 +2,11 @@
 import BaseHead from '../components/BaseHead.astro';
 import Navigation from '../components/Navigation.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from 'astro:assets';
+import card1front from '../assets/card-1-front.png';
+import card1back from '../assets/card-1-back.png';
+import card2front from '../assets/card-2-front.png';
+import card2back from '../assets/card-2-back.png';
 ---
 
 <!doctype html>
@@ -13,14 +18,111 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				width: var(--width);
 				margin: auto;
 			}
+
+			.my-name-is {
+				font-family: "Arial", "Zen Kaku Gothic New Regular";
+				font-weight: bold;
+				font-size: 128px;
+				letter-spacing: -8px;
+				line-height: 1;
+				color: rgba(var(--main));
+
+				position: absolute;
+				right: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+			}
+			.my-name-is span {
+				display: inline-flex;
+				background: rgba(var(--base));
+			}
+			.my-name-is a {
+				text-decoration: none;
+				color: rgba(var(--base-comp-2));
+				transition: 0.1s;
+			}
+			.my-name-is a:hover {
+				color: rgba(var(--base));
+				background: rgba(var(--base-comp-2));
+				transition: 0.1s;
+			}
+
+			.compilations {
+				display: flex;
+				flex-wrap: wrap;
+			}
+			.compilations img {
+				width: 160px;
+				height: 90px;
+				object-fit: contain;
+			}
+
+			.introduction {
+			}
+
+			.tags span {
+				padding: 0 16px;
+				color: rgba(var(--base-comp-1));
+				background: rgba(239, 239, 239);
+				border-radius: 4px;
+			}
 		</style>
 	</head>
 	<body>
 		<Navigation />
 		<main>
-			<p>
-				Lorem Ipsum
-			</p>
+			<div class="my-name-is">
+				<span>
+					不学
+				</span>
+				<span>
+					<a href="https://www.nicovideo.jp/user/88802441">Nicovideo</a>
+				</span>
+				<span>
+					<a href="https://twitter.com/Fugaku36000">Twitter</a>
+				</span>
+			</div>
+			<div class="compilations">
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45822361/45822361.18189924.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45689361/45689361.25630664.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45423864/45423864.83087834.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45323758/45323758.16286027.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44733819/44733819.40783285.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44728262/44728262.74791739.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44605520/44605520.81965626.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44387026/44387026.86725021.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44332868/44332868.64431982.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44265464/44265464.64851662.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44211490/44211490.99165222.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44137224/44137224.42330760.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43984610/43984610.73469416.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43806242/43806242.64876665.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43805070/43805070.11662735.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43715207/43715207.84576117.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43698303/43698303.36113001.M" />
+				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43525998/43525998.6292734.M" />
+			</div>
+			<div class="introduction">
+				<div class="tags">
+					<span>FL Studio</span>
+					<span>Adobe After Effects</span>
+					<span>Blender</span>
+					<span>TouchDesigner</span>
+				</div>
+				<div class="tags">
+					<span>Adobe Illustrator</span>
+					<span>Affinity Photo</span>
+					<span>CLIP STUDIO</span>
+					<span>Aseprite</span>
+				</div>
+				<div class="tags">
+					<span>TypeScript</span>
+					<span>Vue</span>
+					<span>C#</span>
+					<span>Python</span>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
