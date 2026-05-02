@@ -2,125 +2,109 @@
 import BaseHead from '../components/BaseHead.astro';
 import Navigation from '../components/Navigation.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { Image } from 'astro:assets';
-import card1front from '../assets/card-1-front.png';
-import card1back from '../assets/card-1-back.png';
-import card2front from '../assets/card-2-front.png';
-import card2back from '../assets/card-2-back.png';
+import './index.scss';
+
+const compilations = [
+  { video: "https://www.nicovideo.jp/watch/sm45822361", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/45822361/45822361.18189924.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm45689361", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/45689361/45689361.25630664.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm45423864", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/45423864/45423864.83087834.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm45323758", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/45323758/45323758.16286027.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44733819", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44733819/44733819.40783285.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44728262", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44728262/44728262.74791739.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44605520", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44605520/44605520.81965626.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44387026", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44387026/44387026.86725021.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44332868", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44332868/44332868.64431982.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44265464", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44265464/44265464.64851662.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44211490", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44211490/44211490.99165222.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm44137224", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/44137224/44137224.42330760.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm43984610", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/43984610/43984610.73469416.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm43806242", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/43806242/43806242.64876665.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm43805070", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/43805070/43805070.11662735.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm43715207", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/43715207/43715207.84576117.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm43698303", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/43698303/43698303.36113001.M" },
+	{ video: "https://www.nicovideo.jp/watch/sm43525998", thumbnail: "https://nicovideo.cdn.nimg.jp/thumbnails/43525998/43525998.6292734.M" },
+]
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: var(--width);
-				margin: auto;
-			}
-
-			.my-name-is {
-				font-family: "Arial", "Zen Kaku Gothic New Regular";
-				font-weight: bold;
-				font-size: 128px;
-				letter-spacing: -8px;
-				line-height: 1;
-				color: rgba(var(--main));
-
-				position: absolute;
-				right: 0;
-				display: flex;
-				flex-direction: column;
-				align-items: flex-end;
-			}
-			.my-name-is span {
-				display: inline-flex;
-				background: rgba(var(--base));
-			}
-			.my-name-is a {
-				text-decoration: none;
-				color: rgba(var(--base-comp-2));
-				transition: 0.1s;
-			}
-			.my-name-is a:hover {
-				color: rgba(var(--base));
-				background: rgba(var(--base-comp-2));
-				transition: 0.1s;
-			}
-
-			.compilations {
-				display: flex;
-				flex-wrap: wrap;
-			}
-			.compilations img {
-				width: 160px;
-				height: 90px;
-				object-fit: contain;
-			}
-
-			.introduction {
-			}
-
-			.tags span {
-				padding: 0 16px;
-				color: rgba(var(--base-comp-1));
-				background: rgba(239, 239, 239);
-				border-radius: 4px;
-			}
-		</style>
+		<script>
+			import { initIndexBelt } from "../scripts/index-belt";
+			initIndexBelt();
+		</script>
 	</head>
 	<body>
 		<Navigation />
 		<main>
-			<div class="my-name-is">
-				<span>
-					不学
-				</span>
-				<span>
-					<a href="https://www.nicovideo.jp/user/88802441">Nicovideo</a>
-				</span>
-				<span>
-					<a href="https://twitter.com/Fugaku36000">Twitter</a>
-				</span>
-			</div>
-			<div class="compilations">
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45822361/45822361.18189924.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45689361/45689361.25630664.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45423864/45423864.83087834.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/45323758/45323758.16286027.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44733819/44733819.40783285.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44728262/44728262.74791739.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44605520/44605520.81965626.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44387026/44387026.86725021.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44332868/44332868.64431982.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44265464/44265464.64851662.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44211490/44211490.99165222.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/44137224/44137224.42330760.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43984610/43984610.73469416.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43806242/43806242.64876665.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43805070/43805070.11662735.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43715207/43715207.84576117.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43698303/43698303.36113001.M" />
-				<img src="https://nicovideo.cdn.nimg.jp/thumbnails/43525998/43525998.6292734.M" />
-			</div>
-			<div class="introduction">
-				<div class="tags">
-					<span>FL Studio</span>
-					<span>Adobe After Effects</span>
-					<span>Blender</span>
-					<span>TouchDesigner</span>
-				</div>
-				<div class="tags">
-					<span>Adobe Illustrator</span>
-					<span>Affinity Photo</span>
-					<span>CLIP STUDIO</span>
-					<span>Aseprite</span>
-				</div>
-				<div class="tags">
-					<span>TypeScript</span>
-					<span>Vue</span>
-					<span>C#</span>
-					<span>Python</span>
+			<div class="belt">
+				<div class="belt-track">
+					<div class="belt-unit">
+						<div class="nutrition-facts">
+							<div class="nutrition-facts-content">
+								<h2>Nutrition Facts</h2>
+								<div class="divider-bold"/>
+								<h3>What I use</h3>
+								<div class="divider-regu"/>
+								<div class="area">
+									<div class="tags-label">
+										<div class="tags">
+											<img class="tag" src="/public/images/FL Studio.png" alt="FL Studio"/>
+											<img class="tag" src="/public/images/After Effects.png" alt="Adobe After Effects"/>
+											<img class="tag" src="/public/images/Blender.png" alt="Blender"/>
+											<img class="tag" src="/public/images/TouchDesigner.png" alt="TouchDesigner"/>
+										</div>
+										<div class="label">
+											Music / Video
+										</div>
+									</div>
+									<div class="divider-thin"/>
+									<div class="tags-label">
+										<div class="tags">
+											<img class="tag" src="/public/images/Illustrator.png" alt="Adobe Illustrator"/>
+											<img class="tag" src="/public/images/Affinity Photo.png" alt="Affinity Photo"/>
+											<img class="tag" src="/public/images/CLIP STUDIO.png" alt="CLIP STUDIO"/>
+											<img class="tag" src="/public/images/Aseprite.png" alt="Aseprite"/>
+										</div>
+										<div class="label">
+											Art
+										</div>
+									</div>
+									<div class="divider-thin"/>
+									<div class="tags-label">
+										<div class="tags">
+											<img class="tag" src="/public/images/TypeScript.png" alt="TypeScript"/>
+											<img class="tag" src="/public/images/Vue.js.png" alt="Vue.js"/>
+											<img class="tag" src="/public/images/CSharp.png" alt="C#"/>
+											<img class="tag" src="/public/images/Python.png" alt="Python"/>
+										</div>
+										<div class="label">
+											Programming
+										</div>
+									</div>
+								</div>
+								<div class="divider-bold"/>
+								<p>What I do — I'm a Japanese OTOMAD/YTPMV creator with an interest in music production. (bruh I haven't released any songs under this name yet, it just feels kinda inappropriate given my position) My remixes frequently feature Hyperflip and Metal. I’m also interested in typography and logo design.</p>
+								<p>What I like — I enjoy Colour Bass, Hypertrance, and Piano Hip-hop, and I listen to producers like Ace Aura, Ipsiom, and DJ Okawari.</p>
+							</div>
+							<div class="nutrition-facts-under">
+								<h6>PLEASE CONTACT US VIA DISCORD</h6>
+							</div>
+						</div>
+						<div class="compilations">
+							{
+							compilations.map((x) => (
+								<a href={x.video}><img src={x.thumbnail}/></a>
+							))
+							}
+						</div>
+						<div class="links">
+							<h1 class="name">不学</h1>
+							<h1><a href="https://www.nicovideo.jp/user/88802441">Nicovideo</a></h1>
+							<h1><a href="https://twitter.com/Fugaku36000">Twitter</a></h1>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>

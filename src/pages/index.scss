@@ -1,0 +1,151 @@
+main {
+  width: var(--width);
+  margin: auto;
+}
+
+.belt {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  overflow: hidden;
+  width: 100%;
+  cursor: grab;
+  touch-action: pan-y;
+
+  .belt-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+
+    column-gap: 16px;
+  }
+
+  .belt-unit {
+    display: flex;
+    width: max-content;
+
+    column-gap: 16px;
+  }
+}
+.belt.is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
+.nutrition-facts {
+  width: 384px;
+
+  .nutrition-facts-content {
+    border: 4px solid rgba(var(--base-comp-1));
+    padding: 16px;
+
+    h2, h3, p {
+      line-height: 1;
+    }
+    p {
+      margin: 0;
+    }
+
+    .divider-bold {
+      border-bottom: 16px solid rgba(var(--base-comp-1));
+      margin-bottom: 1rem;
+    }
+    .divider-regu {
+      border-bottom: 8px solid rgba(var(--base-comp-1));
+      margin-bottom: 1rem;
+    }
+    .divider-thin {
+      border-bottom: 1px solid rgba(var(--base-comp-1));
+      margin-bottom: 1rem;
+    }
+
+    .area {
+      margin-bottom: 1rem;
+    }
+
+    .tags-label {
+      height: 24px;
+      margin-bottom: 1rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .tags {
+        height: inherit;
+
+        .tag {
+          width: inherit;
+          height: inherit;
+        }
+      }
+
+      .label {
+        line-height: 1;
+      }
+    }
+  }
+
+  .nutrition-facts-under {
+    text-align: right;
+  }
+}
+
+.compilations {
+  width: 640px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+  a {
+    width: 160px;
+    height: 90px;
+
+    img {
+      width: inherit;
+      height: inherit;
+      object-fit: contain;
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.links {
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  font-size: 128px;
+  letter-spacing: -8px;
+  display: flex;
+  flex-direction: column;
+  padding-right: 16px;
+
+  h1 {
+    margin: 0;
+    line-height: 1;
+    display: inline-flex;
+    background: rgba(var(--base));
+    font-size: inherit;
+  }
+
+  a {
+    font-family: "Arial", "Zen Kaku Gothic New Regular";
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(var(--base-comp-2));
+    transition: 0.1s;
+
+    &:hover {
+      color: rgba(var(--base));
+      background: rgba(var(--base-comp-2));
+      transition: 0.1s;
+    }
+  }
+
+  .name {
+    font-size: 192px;
+    color: rgba(var(--main));
+  }
+}

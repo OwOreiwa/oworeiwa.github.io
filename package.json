@@ -13,6 +13,11 @@
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.6",
+    "nico-snapshot": "^0.1.4",
+    "scss": "^0.2.4",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.99.0"
   }
 }
