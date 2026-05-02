@@ -16,8 +16,12 @@ export const initIndexBelt = () => {
   const hoverStopResistance = 0.98;
   const autoResumeBlend = 0.02;
   const minInertiaVelocity = 0.03;
+  const dragThresholdPx = 6;
   let isHovering = false;
   let isDragging = false;
+  let isPointerDown = false;
+  let dragCommitted = false;
+  let dragStartX = 0;
   let isHoverInertiaActive = false;
   let lastPointerX = 0;
   let animationId = 0;
@@ -43,7 +47,7 @@ export const initIndexBelt = () => {
   };
 
   const tick = () => {
-    if (!isDragging && !isHovering) {
+    if (!isDragging && !isHovering && !isPointerDown) {
       offsetX += velocityX;
       velocityX += (baseVelocity - velocityX) * autoResumeBlend;
     } else if (!isDragging && isHoverInertiaActive) {
@@ -101,7 +105,7 @@ export const initIndexBelt = () => {
   };
 
   const beginHover = () => {
-    if (isDragging) {
+    if (isDragging || isPointerDown) {
       return;
     }
     isHovering = true;
@@ -119,19 +123,30 @@ export const initIndexBelt = () => {
   belt.addEventListener("mouseleave", endHover);
 
   belt.addEventListener("pointerdown", (event) => {
-    isDragging = true;
+    isPointerDown = true;
+    dragCommitted = false;
+    dragStartX = event.clientX;
+    lastPointerX = event.clientX;
+    isDragging = false;
     isHovering = false;
     isHoverInertiaActive = false;
-    lastPointerX = event.clientX;
     velocityX = 0;
     startTicking();
-    belt.classList.add("is-dragging");
-    belt.setPointerCapture(event.pointerId);
   });
 
   belt.addEventListener("pointermove", (event) => {
-    if (!isDragging) {
+    if (!isPointerDown) {
       return;
+    }
+    if (!dragCommitted) {
+      if (Math.abs(event.clientX - dragStartX) < dragThresholdPx) {
+        return;
+      }
+      dragCommitted = true;
+      isDragging = true;
+      belt.classList.add("is-dragging");
+      belt.setPointerCapture(event.pointerId);
+      lastPointerX = dragStartX;
     }
     const deltaX = event.clientX - lastPointerX;
     lastPointerX = event.clientX;
@@ -142,12 +157,14 @@ export const initIndexBelt = () => {
   });
 
   const endDrag = (event: PointerEvent) => {
-    if (!isDragging) {
+    if (!isPointerDown) {
       return;
     }
+    isPointerDown = false;
     isDragging = false;
     isHovering = belt.matches(":hover");
     isHoverInertiaActive = false;
+    dragCommitted = false;
     belt.classList.remove("is-dragging");
     if (belt.hasPointerCapture(event.pointerId)) {
       belt.releasePointerCapture(event.pointerId);
