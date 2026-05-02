@@ -9,8 +9,8 @@ export const initIndexBelt = () => {
 
   let loopWidth = 0;
   let offsetX = 0;
-  let velocityX = -0.6; // -0.6;
-  const baseVelocity = -0.2; // -0.2;
+  let velocityX = -0.6; // -0.6
+  const baseVelocity = -0.2; // -0.2
   const maxVelocity = 4;
   const dragResistance = 0.94;
   const hoverStopResistance = 0.98;
