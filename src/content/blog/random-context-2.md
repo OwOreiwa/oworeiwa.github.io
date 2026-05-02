@@ -5,7 +5,7 @@ pubDate: 'Apr 29 2026'
 heroImage: '../../assets/random-context-2.png'
 ---
 
-後で書く
+TODO 後で書く
 
 ![フライヤー](../../assets/random-context-2-flyer.png)
 
