@@ -42,17 +42,18 @@ const posts = (await getCollection('blog')).sort(
 						display: flex;
 						gap: 16px;
 					}
+				}
+			}
 
-					.post-image {
-						width: 100%;
+			.post-image {
+				width: 360px;
+				min-width: 360px;
 
-						img {
-							width: 100%;
-							height: 4rem;
-							vertical-align: top;
-							object-fit: cover;
-						}
-					}
+				img {
+					width: 100%;
+					height: 4rem;
+					vertical-align: top;
+					object-fit: cover;
 				}
 			}
 			
@@ -69,6 +70,7 @@ const posts = (await getCollection('blog')).sort(
 					font-size: 2.369rem;
 					color: rgb(var(--base-comp-1));
 					line-height: 1;
+					white-space: nowrap;
 
 					a:hover & {
 						color: rgb(var(--accent));
